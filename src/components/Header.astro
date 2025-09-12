@@ -1,0 +1,102 @@
+---
+import messages from "../i18n/lang.json"; // { "es": {...}, "en": {...} }
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <!-- Brand -->
+    <a href="/" class="brand" aria-label="Inicio">
+      <img src="/profile.jpg" alt="Foto de perfil" />
+    </a>
+
+    <!-- Nav -->
+    <nav class="main-nav" aria-label="Principal">
+      <a href="#about"       data-i18n="about">Sobre mí</a>
+      <a href="#habilidades" data-i18n="skills">Habilidades</a>
+      <a href="#proyectos"   data-i18n="projects">Proyectos</a>
+      <a href="#contacto"    data-i18n="contact">Contacto</a>
+    </nav>
+
+    <!-- Acciones -->
+    <div class="actions">
+      <!-- Botón tema -->
+      <button id="theme-toggle" class="theme-btn" title="Modo claro/oscuro" aria-label="Cambiar tema">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#FACC15"/><stop offset="1" stop-color="#8B5CF6"/>
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="12" r="9" fill="url(#g)"/><path d="M12 3a9 9 0 0 1 0 18" fill="#00000026"/>
+        </svg>
+      </button>
+
+      <!-- Switch idioma -->
+      <div id="lang-switch" class="lang-switch" role="group" aria-label="Cambiar idioma" data-locale="es">
+        <span class="thumb" aria-hidden="true"></span>
+        <button type="button" class="opt" data-locale="es" aria-pressed="true">ES</button>
+        <button type="button" class="opt" data-locale="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lógica: i18n + tema -->
+  <script is:inline>
+    (() => {
+      // ===== i18n (con tu JSON) =====
+      const MESSAGES = JSON.parse(`{JSON.stringify(messages)}`);
+      const LOCALE_KEY = "locale";
+
+      function applyI18n(locale) {
+        document.documentElement.lang = locale;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (!key) return;
+          const val = MESSAGES?.[locale]?.[key];
+          if (val != null) el.textContent = Array.isArray(val) ? val[0] : val;
+        });
+      }
+
+      function setLocale(locale) {
+        localStorage.setItem(LOCALE_KEY, locale);
+        applyI18n(locale);
+        const sw = document.getElementById("lang-switch");
+        if (sw) {
+          sw.dataset.locale = locale;
+          sw.querySelectorAll(".opt")?.forEach(btn =>
+            btn.setAttribute("aria-pressed", String(btn.getAttribute("data-locale") === locale))
+          );
+        }
+        document.dispatchEvent(new CustomEvent("localechange", { detail: { locale } }));
+      }
+
+      setLocale(localStorage.getItem(LOCALE_KEY) || "es");
+
+      document.getElementById("lang-switch")?.addEventListener("click", (e) => {
+        const btn = e.target.closest(".opt");
+        if (!btn) return;
+        setLocale(btn.getAttribute("data-locale"));
+      });
+
+      // ===== Tema (usa body.dark) =====
+      const THEME_KEY = "theme";
+      const bodyEl = document.body;
+
+      function applyTheme(theme) {
+        bodyEl.classList.toggle("dark", theme === "dark");
+      }
+
+      const initialTheme =
+        localStorage.getItem(THEME_KEY) ||
+        (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+      applyTheme(initialTheme);
+
+      document.getElementById("theme-toggle")?.addEventListener("click", () => {
+        const next = bodyEl.classList.contains("dark") ? "light" : "dark";
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
+    })();
+  </script>
+</header>

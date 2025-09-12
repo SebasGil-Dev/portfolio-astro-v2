@@ -1,0 +1,72 @@
+{
+  "es": {
+    "about": "Sobre mí",
+    "about_greeting": "Hola, soy",
+    "about_titles": ["Sebastián Gil", "Programador"],
+    "about_description": "Como estudiante de Ingeniería de Sistemas y Computación, mi camino ha estado marcado por la curiosidad, la pasión por crear y trabajar en nuevos proyectos. enfocándome en el desarrollo y aprendizaje de tecnologías emergentes. Disfruto trabajar en equipo, asumir nuevos retos y participar en proyectos donde pueda seguir aprendiendo y aportando con una mentalidad práctica y enfocada en resultados.",
+    "about_cv": "Descargar CV",
+    "skills": "Habilidades",
+    "skills_title": "Habilidades",
+    "skills_tech": "🧠 Técnicas",
+    "skills_soft": "🤝 Blandas",
+    "soft_problem_solving": "Resolución de problemas",
+    "soft_teamwork": "Trabajo en equipo",
+    "soft_adaptability": "Adaptabilidad",
+    "soft_communication": "Comunicación efectiva",
+    "soft_decision_making": "Toma de decisiones",
+    "skills_learning": "📚 En Aprendizaje",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "cv_spanish": "📄 Español",
+    "cv_english": "📄 Inglés",
+    "projects_title": "Proyectos",
+
+    "project_java_title": "Java",
+    "project_java_desc": "Juego de pétalos animados con acceso por código.",
+    "project_java_alt": "Flor interactiva en Java",
+
+    "project_astro_title": "Astro",
+    "project_astro_desc": "Sitio web construido con Astro y diseño responsivo.",
+    "project_astro_alt": "Interfaz en Astro",
+
+    "project_sql_title": "SQL",
+    "project_sql_desc": "Simulador de base de datos con consultas interactivas.",
+    "project_sql_alt": "Base de datos SQL"
+
+  },
+  "en": {
+    "about": "About",
+    "about_greeting": "Hi, I'm",
+    "about_titles": ["Sebastián Gil", "Developer"],
+    "about_description": "As a Systems and Computer Engineering student, my journey has been marked by curiosity, a passion for creating, and working on new projects, with a focus on developing and learning emerging technologies. I enjoy working in teams, taking on new challenges, and participating in projects where I can continue learning and contributing with a practical and results-oriented mindset.",
+    "about_cv": "Download CV",
+    "skills": "Skills",
+    "skills_title": "Skills",
+    "skills_tech": "🧠 Technical",
+    "skills_soft": "🤝 Soft Skills",
+    "soft_problem_solving": "Problem Solving",
+    "soft_teamwork": "Teamwork",
+    "soft_adaptability": "Adaptability",
+    "soft_communication": "Effective Communication",
+    "soft_decision_making": "Decision Making",
+    "skills_learning": "📚 Learning",
+    "projects": "Projects",
+    "contact": "Contact",
+    "cv_spanish": "📄 Spanish",
+    "cv_english": "📄 English",
+    "projects_title": "Projects",
+
+    "project_java_title": "Java",
+    "project_java_desc": "Animated petal game with access by code.",
+    "project_java_alt": "Interactive flower in Java",
+
+    "project_astro_title": "Astro",
+    "project_astro_desc": "Responsive website built with Astro.",
+    "project_astro_alt": "Astro web interface",
+
+    "project_sql_title": "SQL",
+    "project_sql_desc": "Database simulator with interactive queries.",
+    "project_sql_alt": "SQL database"
+
+  }
+}
