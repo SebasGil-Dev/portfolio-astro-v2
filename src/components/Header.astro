@@ -1,43 +1,42 @@
 ---
 import esFlag from "../assets/es.svg";
-import enFlag from "../assets/en.svg";
+import enFlag from "../assets/en.svg"; // lo dejamos importado por si luego reactivas la lógica
 ---
 
 <header
   class="fixed top-3 left-1/2 z-50 w-full max-w-6xl -translate-x-1/2 px-3 sm:px-4"
   role="banner"
 >
-<div
-  id="headerWrap"
-  data-scrolled="false"
-  class="
-    relative rounded-full border border-transparent ring-0 shadow-none
-    bg-transparent dark:bg-transparent backdrop-blur-0
-    transition-all duration-500 ease-in-out
+  <div
+    id="headerWrap"
+    data-scrolled="false"
+    class="
+      relative rounded-full border border-transparent ring-0 shadow-none
+      bg-transparent dark:bg-transparent backdrop-blur-0
+      transition-all duration-500 ease-in-out
 
-    data-[scrolled=true]:border-neutral-900/10
-    dark:data-[scrolled=true]:border-white/12
-    data-[scrolled=true]:ring-1 data-[scrolled=true]:ring-black/5
-    dark:data-[scrolled=true]:ring-white/5
-    data-[scrolled=true]:shadow-lg
+      data-[scrolled=true]:border-neutral-900/10
+      dark:data-[scrolled=true]:border-white/12
+      data-[scrolled=true]:ring-1 data-[scrolled=true]:ring-black/5
+      dark:data-[scrolled=true]:ring-white/5
+      data-[scrolled=true]:shadow-lg
 
-    data-[scrolled=true]:bg-white/60
-    dark:data-[scrolled=true]:bg-neutral-900/60
+      data-[scrolled=true]:bg-white/60
+      dark:data-[scrolled=true]:bg-neutral-900/60
 
-    data-[scrolled=true]:backdrop-blur-md
-  "
->
-    <!-- Contenedor flex sin wraps -->
+      data-[scrolled=true]:backdrop-blur-md
+    "
+  >
     <nav
       class="relative z-10 flex min-h-12 items-center justify-between gap-2 sm:gap-4 px-3 sm:px-6 py-2"
       aria-label="Navegación principal"
     >
-      <!-- Izquierda: avatar (compacto en móvil) -->
+      <!-- Izquierda -->
       <a href="/" class="group shrink-0 inline-flex items-center" aria-label="Inicio">
         <div
           class="relative h-9 w-9 sm:h-10 sm:w-10 overflow-hidden rounded-full ring-2 ring-white/40 dark:ring-white/10 shadow-sm
-                 transition-all duration-500 ease-in-out
-                 group-hover:scale-110 group-focus-visible:scale-110"
+                transition-all duration-500 ease-in-out
+                group-hover:scale-110 group-focus-visible:scale-110"
         >
           <video
             src="/profile.webm"
@@ -49,7 +48,7 @@ import enFlag from "../assets/en.svg";
         </div>
       </a>
 
-      <!-- Centro: menú scrollable horizontal, sin saltar de línea -->
+      <!-- Centro -->
       <ul
         class="flex-1 min-w-0 flex items-center justify-center
                overflow-x-auto whitespace-nowrap
@@ -63,31 +62,32 @@ import enFlag from "../assets/en.svg";
                     transition-[transform,color] duration-300 ease-out
                     group-hover:scale-110 group-focus-visible:scale-110
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md">
-            Sobre mí
+            <h1 data-i18n="about">Sobre mí</h1>
             <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
           </a>
         </li>
         <li class="group shrink-0">
           <a href="#habilidades" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md">
-            Habilidades
+            <h1 data-i18n="skills">Habilidades</h1>
             <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
           </a>
         </li>
         <li class="group shrink-0">
           <a href="#proyectos" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md">
-            Proyectos
+            <h1 data-i18n="projects">Proyectos</h1>
+
             <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
           </a>
         </li>
         <li class="group shrink-0">
           <a href="#contacto" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md">
-            Contacto
+            <h1 data-i18n="contact">Contacto</h1>
             <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
           </a>
         </li>
       </ul>
 
-      <!-- Derecha: acciones compactas (no se colapsan, no rompen la línea) -->
+      <!-- Derecha -->
       <div class="flex shrink-0 items-center gap-2 sm:gap-3">
         <!-- Tema -->
         <button
@@ -111,37 +111,39 @@ import enFlag from "../assets/en.svg";
         </button>
 
         <!-- Idioma -->
-<!-- Botón de idioma (muestra bandera actual) -->
         <button
           type="button"
+          data-lang-toggle               
           aria-label="Cambiar idioma"
           class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white/70 ring-1 ring-black/5 backdrop-blur-sm
                 hover:bg-white/80 active:scale-95
                 dark:border-white/10 dark:bg-neutral-900/70 dark:ring-white/5 dark:hover:bg-neutral-900/80
                 transition-all duration-300 ease-out hover:scale-110 focus-visible:scale-110
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 overflow-hidden"
-          data-lang-toggle
           title="Idioma"
         >
           <img
-            id="lang-flag"
+            data-lang-flag               
             src={esFlag.src}
             alt="Idioma actual"
-            class="h-5 w-5 object-cover rounded-full transition-transform duration-300 ease-in-out"
+            class="h-5 w-5 object-cover rounded-full"
           />
         </button>
+
       </div>
     </nav>
   </div>
 </header>
 
+<!-- Mantengo solo lo necesario: tema + borde al hacer scroll -->
 <script is:inline type="module">
-  const THEME_KEY = 'theme';
-  const LANG_KEY  = 'lang';
-
   // --- Tema ---
+  const THEME_KEY = 'theme';
   const getTheme = () => {
-    try { const s = localStorage.getItem(THEME_KEY); if (s === 'dark' || s === 'light') return s; } catch {}
+    try {
+      const s = localStorage.getItem(THEME_KEY);
+      if (s === 'dark' || s === 'light') return s;
+    } catch {}
     return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   };
   const applyTheme = (mode, persist=false) => {
@@ -151,7 +153,7 @@ import enFlag from "../assets/en.svg";
   };
   const toggleTheme = () => applyTheme(getTheme() === 'dark' ? 'light' : 'dark', true);
 
-  // --- Scroll state (siempre) ---
+  // --- Scroll state (para borde/sombra al bajar) ---
   const setupScroll = () => {
     const wrap = document.getElementById('headerWrap');
     if (!wrap) return;
@@ -162,35 +164,9 @@ import enFlag from "../assets/en.svg";
     window.addEventListener('resize', raf(apply), { passive: true });
   };
 
-  // --- Idioma (solo si existen elementos; opcional) ---
-  const setupLang = () => {
-    const btn  = document.querySelector('[data-lang-toggle]');
-    const flag = document.getElementById('lang-flag');
-    if (!btn || !flag) return; // nada que hacer si no hay UI de idioma
-
-    const esURL = btn.getAttribute('data-flag-es') || '';
-    const enURL = btn.getAttribute('data-flag-en') || '';
-
-    const getLang = () => { try { return localStorage.getItem(LANG_KEY) || 'es'; } catch { return 'es'; } };
-    const applyLang = (lang, persist=false) => {
-      const url = lang === 'es' ? esURL : enURL;
-      if (url) flag.src = url;
-      flag.alt = lang === 'es' ? 'Español' : 'English';
-      if (persist) try { localStorage.setItem(LANG_KEY, lang); } catch {}
-    };
-    const toggleLang = () => applyLang(getLang() === 'es' ? 'en' : 'es', true);
-
-    applyLang(getLang());
-    btn.addEventListener('click', toggleLang);
-  };
-
   document.addEventListener('DOMContentLoaded', () => {
-    // tema
     applyTheme(getTheme());
     document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', toggleTheme));
-    // idioma (opcional)
-    setupLang();
-    // scroll (siempre)
-    setupScroll();
+    setupScroll(); // <- mantiene el efecto del borde/sombra al hacer scroll
   });
 </script>

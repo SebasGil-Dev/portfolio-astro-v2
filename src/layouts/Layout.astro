@@ -1,30 +1,44 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-const { title = "Portafolio " } = Astro.props;
+
+// título recibido desde la página, con valor por defecto
+const { title = "Portafolio" } = Astro.props;
+
+// generamos la ruta absoluta al script global de i18n
+const i18nUrl = new URL("../scripts/i18n.ts", import.meta.url).pathname;
 ---
+
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
   </head>
+
   <body class="min-h-dvh bg-white text-gray-900 dark:bg-[#313131] dark:text-white">
     <Header />
-    <main class="pt-24"> <!-- espacio por header fijo -->
+
+    <main class="pt-24">
+      <!-- espacio por header fijo -->
       <slot />
-      
+
       <!-- Contenido de relleno para hacer scroll -->
       <section class="max-w-3xl mx-auto px-4 py-16 space-y-8">
-        <h1 class="text-4xl font-bold text-center">Bienvenido a mi portafolio</h1>
+        <h1 class="text-4xl font-bold text-center">
+          Bienvenido a mi portafolio
+        </h1>
+
         <p class="text-lg leading-relaxed text-center">
-          Este es un texto de ejemplo para simular contenido real. Aquí podrías hablar sobre tus proyectos, tus habilidades, tu experiencia y lo que te apasiona crear. 
+          Este es un texto de ejemplo para simular contenido real. Aquí podrías hablar sobre tus proyectos, tus habilidades, tu experiencia y lo que te apasiona crear.
         </p>
 
         <div class="space-y-12">
           {Array.from({ length: 10 }).map((_, i) => (
             <div class="bg-gray-100 dark:bg-[#444] p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-              <h2 class="text-2xl font-semibold mb-2">Proyecto {i + 1}</h2>
+              <h2 class="text-2xl font-semibold mb-2">
+                Proyecto {i + 1}
+              </h2>
               <p class="text-base leading-relaxed">
                 Descripción del proyecto {i + 1}. Aquí podrías incluir detalles como tecnologías usadas, objetivos del desarrollo, y qué aprendiste durante el proceso.
               </p>
@@ -37,5 +51,8 @@ const { title = "Portafolio " } = Astro.props;
         </footer>
       </section>
     </main>
+
+    <!-- Carga UNA sola vez el script global de i18n -->
+    <script type="module" src={i18nUrl}></script>
   </body>
 </html>
