@@ -42,50 +42,82 @@ import enFlag from "../assets/en.svg"; // lo dejamos importado por si luego reac
             src="/profile.webm"
             autoplay muted loop playsinline
             class="absolute inset-0 h-full w-full object-cover object-center
-                   scale-[1.2] transition-transform duration-500 ease-in-out
-                   group-hover:scale-[1.3] group-focus-visible:scale-[1.3]"
+                  scale-[1.2] transition-transform duration-500 ease-in-out
+                  group-hover:scale-[1.3] group-focus-visible:scale-[1.3]"
           ></video>
         </div>
       </a>
 
-      <!-- Centro -->
-      <ul
-        class="flex-1 min-w-0 flex items-center justify-center
-               overflow-x-auto whitespace-nowrap
-               gap-4 sm:gap-6 text-[13px] sm:text-sm font-medium
-               [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        <li class="group shrink-0">
-          <a href="#sobre-mi"
-             class="relative inline-flex items-center px-1 py-0.5
-                    text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white
-                    transition-[transform,color] duration-300 ease-out
-                    group-hover:scale-110 group-focus-visible:scale-110
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md">
-            <h1 data-i18n="about">Sobre mí</h1>
-            <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
-          </a>
-        </li>
-        <li class="group shrink-0">
-          <a href="#habilidades" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md">
-            <h1 data-i18n="skills">Habilidades</h1>
-            <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
-          </a>
-        </li>
-        <li class="group shrink-0">
-          <a href="#proyectos" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md">
-            <h1 data-i18n="projects">Proyectos</h1>
+<!-- Centro -->
+<ul
+  class="flex-1 min-w-0 flex items-center justify-center
+         overflow-x-auto whitespace-nowrap
+         gap-3 sm:gap-6 text-[13px] sm:text-sm font-medium
+         [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+         max-[480px]:gap-2"
+>
+  <!-- Sobre mí -->
+  <li class="group shrink-0">
+    <a href="#sobre-mi"
+       class="relative inline-flex items-center px-1 py-0.5
+              text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white
+              transition-[transform,color] duration-300 ease-out
+              group-hover:scale-110 group-focus-visible:scale-110
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md
+              max-[480px]:px-0.5">
 
-            <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
-          </a>
-        </li>
-        <li class="group shrink-0">
-          <a href="#contacto" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md">
-            <h1 data-i18n="contact">Contacto</h1>
-            <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
-          </a>
-        </li>
-      </ul>
+      <!-- Icono: visible < 480px -->
+      <svg class="hidden max-[480px]:inline-block h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <!-- user -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 14a4 4 0 10-8 0v2a2 2 0 002 2h4a2 2 0 002-2v-2z" />
+        <circle cx="12" cy="8" r="3" stroke-width="1.5"/>
+      </svg>
+
+      <!-- Texto: oculto < 480px -->
+      <span data-i18n="about" class="max-[480px]:hidden">Sobre mí</span>
+
+      <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
+    </a>
+  </li>
+
+  <!-- Habilidades -->
+  <li class="group shrink-0">
+    <a href="#habilidades" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md max-[480px]:px-0.5">
+      <svg class="hidden max-[480px]:inline-block h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <!-- sparkles -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3l1.5 3L10 7l-3.5 1L5 11l-1.5-3L0 7l3.5-1L5 3zM19 3l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4zM9 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/>
+      </svg>
+      <span data-i18n="skills" class="max-[480px]:hidden">Habilidades</span>
+      <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
+    </a>
+  </li>
+
+  <!-- Proyectos -->
+  <li class="group shrink-0">
+    <a href="#proyectos" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md max-[480px]:px-0.5">
+      <svg class="hidden max-[480px]:inline-block h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <!-- folder -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h6l2 2h10v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/>
+      </svg>
+      <span data-i18n="projects" class="max-[480px]:hidden">Proyectos</span>
+      <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
+    </a>
+  </li>
+
+  <!-- Contacto -->
+  <li class="group shrink-0">
+    <a href="#contacto" class="relative inline-flex items-center px-1 py-0.5 text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md max-[480px]:px-0.5">
+      <svg class="hidden max-[480px]:inline-block h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <!-- mail -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M22 8l-10 6L2 8"/>
+      </svg>
+      <span data-i18n="contact" class="max-[480px]:hidden">Contacto</span>
+      <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
+    </a>
+  </li>
+</ul>
+
 
       <!-- Derecha -->
       <div class="flex shrink-0 items-center gap-2 sm:gap-3">
@@ -94,10 +126,10 @@ import enFlag from "../assets/en.svg"; // lo dejamos importado por si luego reac
           type="button"
           aria-label="Cambiar tema"
           class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white/70 ring-1 ring-black/5 backdrop-blur-sm
-                 hover:bg-white/80 active:scale-95
-                 dark:border-white/10 dark:bg-neutral-900/70 dark:ring-white/5 dark:hover:bg-neutral-900/80
-                 transition-all duration-300 ease-out hover:scale-110 focus-visible:scale-110
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40"
+                hover:bg-white/80 active:scale-95
+                dark:border-white/10 dark:bg-neutral-900/70 dark:ring-white/5 dark:hover:bg-neutral-900/80
+                transition-all duration-300 ease-out hover:scale-110 focus-visible:scale-110
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40"
           data-theme-toggle
           title="Tema"
         >
