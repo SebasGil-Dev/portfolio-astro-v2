@@ -3,12 +3,24 @@
     "about": "Sobre mí",
     "skills": "Habilidades",
     "projects": "Proyectos",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "about_greeting": "Hola, soy",
+    "about_rot1": "Sebastián Gil",
+    "about_rot2": "Ingeniero de Sistemas",
+    "about_rot3": "Programador",
+    "about_description": "Como estudiante de Ingeniería de Sistemas y Computación, mi camino ha estado marcado por la curiosidad, la pasión por crear y trabajar en nuevos proyectos, enfocándome en el desarrollo y aprendizaje de tecnologías emergentes. Disfruto trabajar en equipo, asumir nuevos retos y participar en proyectos donde pueda seguir aprendiendo y aportando con una mentalidad práctica y enfocada en resultados.",
+    "about_cv": "Descargar CV"
   },
   "en": {
     "about": "About",
     "skills": "Skills",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "about_greeting": "Hi, I'm",
+    "about_rot1": "Sebastián Gil",
+    "about_rot2": "Systems Engineer",
+    "about_rot3": "Developer",
+    "about_description": "As a Systems and Computer Engineering student, my journey has been driven by curiosity and a passion for creating and working on new projects, focusing on developing and learning emerging technologies. I enjoy teamwork, taking on new challenges, and contributing with a practical, results-oriented mindset.",
+    "about_cv": "Download CV"
   }
 }
