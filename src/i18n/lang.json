@@ -45,7 +45,27 @@
     "project_sql_title": "SQL",
     "project_sql_desc": "Simulador de base de datos con consultas interactivas.",
     "project_java_title": "Java",
-    "project_java_desc": "Juego de pétalos animados con acceso por código."
+    "project_java_desc": "Juego de pétalos animados con acceso por código.",
+    
+    "contact_title": "Contacto",
+    "contact_subtitle": "¿Tienes un proyecto en mente o quieres saludar? Escríbeme y te respondo.",
+
+    "contact_name_label": "Nombre",
+    "contact_name_ph": "Tu nombre",
+
+    "contact_email_label": "Email",
+    "contact_email_ph": "tu@email.com",
+
+    "contact_message_label": "Mensaje",
+    "contact_message_ph": "Cuéntame brevemente tu idea…",
+
+    "contact_privacy": "Enviarás tus datos de forma segura. Nunca comparto tu información.",
+    "contact_send": "Enviar",
+    "contact_error": "Hubo un problema al enviar. Intenta de nuevo.",
+
+    "contact_thanks_title": "¡Gracias por tu mensaje!",
+    "contact_thanks_body": "Te responderé lo antes posible. Si necesitas algo urgente, también puedes escribirme por correo.",
+    "contact_thanks_again": "Enviar otro mensaje"
   },
 
   "en": {
@@ -94,6 +114,26 @@
     "project_sql_title": "SQL",
     "project_sql_desc": "Database simulator with interactive queries.",
     "project_java_title": "Java",
-    "project_java_desc": "Animated petal game with code-based access."
+    "project_java_desc": "Animated petal game with code-based access.",
+    
+    "contact_title": "Contact",
+    "contact_subtitle": "Have a project in mind or just want to say hi? Drop me a line and I’ll reply.",
+
+    "contact_name_label": "Name",
+    "contact_name_ph": "Your name",
+
+    "contact_email_label": "Email",
+    "contact_email_ph": "you@email.com",
+
+    "contact_message_label": "Message",
+    "contact_message_ph": "Tell me briefly about your idea…",
+
+    "contact_privacy": "Your data is safe with me. I never share your information.",
+    "contact_send": "Send",
+    "contact_error": "There was a problem sending your message. Please try again.",
+
+    "contact_thanks_title": "Thanks for your message!",
+    "contact_thanks_body": "I’ll get back to you as soon as possible. If it’s urgent, you can also email me directly.",
+    "contact_thanks_again": "Send another message"
   }
 }
