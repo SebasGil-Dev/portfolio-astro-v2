@@ -1,0 +1,126 @@
+---
+import htmlIcon from "../assets/skills/html.svg";
+import cssIcon from "../assets/skills/css.svg";
+import jsIcon from "../assets/skills/javascript.svg";
+import tsIcon from "../assets/skills/typescript.svg";
+import astroIcon from "../assets/skills/astro.svg";
+import nodeIcon from "../assets/skills/nodejs.svg";
+import sqlIcon from "../assets/skills/sql.svg";
+import javaIcon from "../assets/skills/java.svg";
+import cppIcon from "../assets/skills/cpp.svg";
+import pythonIcon from "../assets/skills/python.svg";
+
+import teamworkIcon from "../assets/skills/teamwork.svg";
+import communicationIcon from "../assets/skills/communication.svg";
+import adaptabilityIcon from "../assets/skills/adaptability.svg";
+import decisionIcon from "../assets/skills/decision.svg";
+import problemIcon from "../assets/skills/problem-solving.svg";
+
+const technicalSkills = [
+  { name: "HTML", icon: htmlIcon },
+  { name: "CSS / Tailwind", icon: cssIcon },
+  { name: "JavaScript", icon: jsIcon },
+  { name: "TypeScript", icon: tsIcon },
+  { name: "Astro", icon: astroIcon },
+  { name: "Node.js", icon: nodeIcon },
+  { name: "SQL", icon: sqlIcon },
+  { name: "Java", icon: javaIcon },
+  { name: "C++", icon: cppIcon },
+  { name: "Python", icon: pythonIcon },
+];
+
+const softSkills = [
+  { name: "Trabajo en equipo", icon: teamworkIcon },
+  { name: "Comunicación", icon: communicationIcon },
+  { name: "Adaptabilidad", icon: adaptabilityIcon },
+  { name: "Toma de decisiones", icon: decisionIcon },
+  { name: "Resolución de problemas", icon: problemIcon },
+];
+---
+
+<section
+  id="habilidades"
+  class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+  aria-label="Habilidades"
+>
+  <div class="text-center mb-14">
+    <h2
+      class="text-4xl sm:text-5xl font-extrabold tracking-tight
+             bg-gradient-to-r from-lime-600 via-lime-500 to-amber-500
+             bg-clip-text text-transparent mb-3"
+    >
+      Habilidades
+    </h2>
+    <p
+      class="text-neutral-600 dark:text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto"
+    >
+      Combinación de habilidades técnicas y blandas que me permiten crear proyectos funcionales, eficientes y colaborativos.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <!-- Técnicas -->
+    <div
+      class="backdrop-blur-xl bg-white/70 dark:bg-neutral-900/50
+             border border-black/10 dark:border-white/10 rounded-2xl p-8 shadow-lg"
+    >
+      <h3 class="text-2xl font-semibold mb-6 flex items-center justify-center gap-2
+         text-center text-neutral-900 dark:text-white">
+        Técnicas
+      </h3>
+      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-5">
+        {technicalSkills.map(skill => (
+          <li
+            class="flex flex-col items-center justify-center gap-3 rounded-xl
+                   bg-white/80 dark:bg-neutral-800/70 border border-black/5 dark:border-white/10
+                   shadow-sm hover:shadow-md transition-transform hover:scale-105 p-4"
+          >
+        <img
+        src={skill.icon.src}
+        alt={skill.name}
+        class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-9 lg:w-9
+                object-contain transition-all duration-300 dark:invert-0 invert"
+        />
+
+
+            <span class="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+              {skill.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Blandas -->
+    <div
+      class="backdrop-blur-xl bg-white/70 dark:bg-neutral-900/50
+             border border-black/10 dark:border-white/10 rounded-2xl p-8 shadow-lg"
+    >
+      <h3 class="text-2xl font-semibold mb-6 flex items-center justify-center gap-2
+         text-center text-neutral-900 dark:text-white">
+        Blandas
+      </h3>
+      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-5">
+        {softSkills.map(skill => (
+          <li
+            class="flex flex-col items-center justify-center gap-3 rounded-xl
+                   bg-white/80 dark:bg-neutral-800/70 border border-black/5 dark:border-white/10
+                   shadow-sm hover:shadow-md transition-transform hover:scale-105 p-4"
+          >
+        <img
+        src={skill.icon.src}
+        alt={skill.name}
+        class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-9 lg:w-9
+                object-contain transition-all duration-300 dark:invert-0 invert"
+        />
+
+
+            <span class="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+              {skill.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
