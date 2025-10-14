@@ -4,23 +4,96 @@
     "skills": "Habilidades",
     "projects": "Proyectos",
     "contact": "Contacto",
+
     "about_greeting": "Hola, soy",
     "about_rot1": "Sebastián Gil",
     "about_rot2": "Ingeniero de Sistemas",
     "about_rot3": "Programador",
     "about_description": "Como estudiante de Ingeniería de Sistemas y Computación, mi camino ha estado marcado por la curiosidad, la pasión por crear y trabajar en nuevos proyectos, enfocándome en el desarrollo y aprendizaje de tecnologías emergentes. Disfruto trabajar en equipo, asumir nuevos retos y participar en proyectos donde pueda seguir aprendiendo y aportando con una mentalidad práctica y enfocada en resultados.",
-    "about_cv": "Descargar CV"
+    "about_cv": "Descargar CV",
+    "about_available": "Disponible para trabajar",
+
+    "skills_title": "Habilidades",
+    "skills_description": "Combinación de habilidades técnicas y blandas que me permiten crear proyectos funcionales, eficientes y colaborativos.",
+    "skills_tech": "Técnicas",
+    "skills_soft": "Blandas",
+    "skills_button": "Ver Certificados",
+
+    "skill_html": "HTML",
+    "skill_css": "CSS / Tailwind",
+    "skill_js": "JavaScript",
+    "skill_ts": "TypeScript",
+    "skill_astro": "Astro",
+    "skill_node": "Node.js",
+    "skill_sql": "SQL",
+    "skill_java": "Java",
+    "skill_cpp": "C++",
+    "skill_python": "Python",
+
+    "soft_teamwork": "Trabajo en equipo",
+    "soft_communication": "Comunicación",
+    "soft_adaptability": "Adaptabilidad",
+    "soft_decision": "Toma de decisiones",
+    "soft_problem": "Resolución de problemas",
+
+    "projects_title": "Proyectos",
+    "projects_tech_label": "Tecnologías utilizadas",
+    "projects_github_label": "Ver en GitHub",
+
+    "project_astro_title": "Astro",
+    "project_astro_desc": "Sitio web construido con Astro y diseño responsivo.",
+    "project_sql_title": "SQL",
+    "project_sql_desc": "Simulador de base de datos con consultas interactivas.",
+    "project_java_title": "Java",
+    "project_java_desc": "Juego de pétalos animados con acceso por código."
   },
+
   "en": {
     "about": "About",
     "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact",
+
     "about_greeting": "Hi, I'm",
     "about_rot1": "Sebastián Gil",
     "about_rot2": "Systems Engineer",
     "about_rot3": "Developer",
     "about_description": "As a Systems and Computer Engineering student, my journey has been driven by curiosity and a passion for creating and working on new projects, focusing on developing and learning emerging technologies. I enjoy teamwork, taking on new challenges, and contributing with a practical, results-oriented mindset.",
-    "about_cv": "Download CV"
+    "about_cv": "Download CV",
+    "about_available": "Available for work",
+
+    "skills_title": "Skills",
+    "skills_description": "A combination of technical and soft skills that allow me to create functional, efficient, and collaborative projects.",
+    "skills_tech": "Technical",
+    "skills_soft": "Soft Skills",
+    "skills_button": "View Certificates",
+
+    "skill_html": "HTML",
+    "skill_css": "CSS / Tailwind",
+    "skill_js": "JavaScript",
+    "skill_ts": "TypeScript",
+    "skill_astro": "Astro",
+    "skill_node": "Node.js",
+    "skill_sql": "SQL",
+    "skill_java": "Java",
+    "skill_cpp": "C++",
+    "skill_python": "Python",
+
+    "soft_teamwork": "Teamwork",
+    "soft_communication": "Communication",
+    "soft_adaptability": "Adaptability",
+    "soft_decision": "Decision Making",
+    "soft_problem": "Problem Solving",
+
+    "projects_title": "Projects",
+    "projects_tech_label": "Technologies used",
+    "projects_github_label": "View on GitHub",
+
+    "project_astro_title": "Astro",
+    "project_astro_desc": "Responsive website built with Astro.",
+    "project_sql_title": "SQL",
+    "project_sql_desc": "Database simulator with interactive queries.",
+    "project_java_title": "Java",
+    "project_java_desc": "Animated petal game with code-based access."
   }
 }
