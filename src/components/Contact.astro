@@ -1,5 +1,6 @@
 ---
-/* Netlify Forms (AJAX) + i18n con placeholders */
+/* Netlify Forms (AJAX) + overlay Gracias encima del mismo card.
+   Incluye "formulario fantasma" oculto para que Netlify detecte el form en build. */
 ---
 
 <section id="contacto" class="relative max-w-[100vw] py-20 overflow-visible" aria-label="Contacto">
@@ -23,37 +24,36 @@
     </p>
   </div>
 
-  <!-- Card: alterna entre Form y Gracias -->
-  <div class="max-w-3xl mx-auto">
-    <!-- FORM (Netlify + honeypot) -->
+  <!-- Wrapper del card con overlay -->
+  <div class="relative max-w-3xl mx-auto">
+    <!-- FORM visible (card) -->
     <form
       id="contactForm"
       name="contacto"
       method="POST"
+      action="/"
       data-netlify="true"
       netlify-honeypot="company"
       class="rounded-3xl border border-black/10 dark:border-white/10
              bg-white/70 dark:bg-neutral-900/60 backdrop-blur
-             ring-1 ring-black/5 dark:ring-white/5 shadow-lg p-6 sm:p-8 grid gap-4"
+             ring-1 ring-black/5 dark:ring-white/5 shadow-lg
+             p-6 sm:p-8 grid gap-4 transition-all duration-500"
     >
       <!-- Requerido por Netlify -->
       <input type="hidden" name="form-name" value="contacto" />
       <!-- Honeypot -->
-      <p class="hidden">
-        <label>Don’t fill this out: <input name="company" /></label>
-      </p>
+      <p class="hidden"><label>Don’t fill this out: <input name="company" /></label></p>
 
       <div class="grid sm:grid-cols-2 gap-4">
         <label class="grid gap-2">
           <span class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="contact_name_label">Nombre</span>
           <input
             type="text" name="name" required minlength="2" autocomplete="name"
-            placeholder="Tu nombre"
+            placeholder="Tu nombre" data-i18n-placeholder="contact_name_ph"
             class="rounded-xl border border-black/10 dark:border-white/10
                    bg-white/70 dark:bg-neutral-800/70 text-neutral-900 dark:text-white
                    px-4 py-3 ring-1 ring-black/5 dark:ring-white/5 outline-none
                    focus:border-blue-400 focus:ring-blue-200 dark:focus:border-cyan-400 dark:focus:ring-cyan-400/20"
-            data-i18n-placeholder="contact_name_ph"
           />
         </label>
 
@@ -61,12 +61,11 @@
           <span class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="contact_email_label">Email</span>
           <input
             type="email" name="email" required autocomplete="email"
-            placeholder="tu@email.com"
+            placeholder="tu@email.com" data-i18n-placeholder="contact_email_ph"
             class="rounded-xl border border-black/10 dark:border-white/10
                    bg-white/70 dark:bg-neutral-800/70 text-neutral-900 dark:text-white
                    px-4 py-3 ring-1 ring-black/5 dark:ring-white/5 outline-none
                    focus:border-blue-400 focus:ring-blue-200 dark:focus:border-cyan-400 dark:focus:ring-cyan-400/20"
-            data-i18n-placeholder="contact_email_ph"
           />
         </label>
       </div>
@@ -75,12 +74,11 @@
         <span class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="contact_message_label">Mensaje</span>
         <textarea
           name="message" required rows={6} minlength="10"
-          placeholder="Cuéntame brevemente tu idea…"
+          placeholder="Cuéntame brevemente tu idea…" data-i18n-placeholder="contact_message_ph"
           class="rounded-xl border border-black/10 dark:border-white/10
                  bg-white/70 dark:bg-neutral-800/70 text-neutral-900 dark:text-white
                  px-4 py-3 ring-1 ring-black/5 dark:ring-white/5 outline-none
                  focus:border-blue-400 focus:ring-blue-200 dark:focus:border-cyan-400 dark:focus:ring-cyan-400/20"
-          data-i18n-placeholder="contact_message_ph"
         ></textarea>
       </label>
 
@@ -106,56 +104,63 @@
         </button>
       </div>
 
-      <!-- Error (oculto) -->
       <p id="contactError" class="hidden text-sm text-red-600 dark:text-red-400 mt-2" data-i18n="contact_error">
         Hubo un problema al enviar. Intenta de nuevo.
       </p>
     </form>
 
-    <!-- GRACIAS (oculto) -->
-    <div
-      id="contactThanks"
-      class="hidden rounded-3xl border border-black/10 dark:border-white/10
-             bg-white/70 dark:bg-neutral-900/60 backdrop-blur
-             ring-1 ring-black/5 dark:ring-white/5 shadow-lg p-8 text-center"
-    >
-      <h3
-        class="text-2xl font-semibold
-               bg-gradient-to-r from-lime-600 via-lime-500 to-amber-500
-               bg-clip-text text-transparent mb-2"
-        data-i18n="contact_thanks_title"
-      >¡Gracias por tu mensaje!</h3>
-
-      <p class="text-neutral-700 dark:text-neutral-300 max-w-xl mx-auto" data-i18n="contact_thanks_body">
-        Te responderé lo antes posible. Si necesitas algo urgente, también puedes escribirme por correo.
-      </p>
-
-      <button
-        type="button" id="contactReset"
-        class="mt-6 inline-flex items-center gap-2 rounded-full border border-gray-300
-               bg-white text-gray-800 font-medium text-sm px-5 py-2 shadow-sm
-               hover:bg-gray-100 active:scale-[0.98]
-               dark:bg-neutral-900 dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-800
-               transition-all duration-300"
+    <!-- OVERLAY: Gracias encima del MISMO card -->
+    <div id="contactOverlay" class="pointer-events-none hidden absolute inset-0 z-10 grid place-items-center p-4">
+      <div
+        class="max-w-xl w-full text-center rounded-3xl border border-black/10 dark:border-white/10
+               bg-white/85 dark:bg-neutral-900/80 backdrop-blur-xl
+               ring-1 ring-black/5 dark:ring-white/5 shadow-2xl p-8"
       >
-        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 10-8 8"/>
-        </svg>
-        <span data-i18n="contact_thanks_again">Enviar otro mensaje</span>
-      </button>
+        <h3
+          class="text-2xl font-semibold
+                 bg-gradient-to-r from-lime-600 via-lime-500 to-amber-500
+                 bg-clip-text text-transparent mb-2"
+          data-i18n="contact_thanks_title"
+        >¡Gracias por tu mensaje!</h3>
+
+        <p class="text-neutral-700 dark:text-neutral-300 max-w-md mx-auto" data-i18n="contact_thanks_body">
+          Te responderé lo antes posible. Si necesitas algo urgente, también puedes escribirme por correo.
+        </p>
+
+        <button
+          type="button" id="contactReset"
+          class="mt-6 inline-flex items-center gap-2 rounded-full border border-gray-300
+                 bg-white text-gray-800 font-medium text-sm px-5 py-2 shadow-sm
+                 hover:bg-gray-100 active:scale-[0.98]
+                 dark:bg-neutral-900 dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-800
+                 transition-all duration-300"
+        >
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 10-8 8"/>
+          </svg>
+          <span data-i18n="contact_thanks_again">Enviar otro mensaje</span>
+        </button>
+      </div>
     </div>
   </div>
+
+  <!-- 👇 Formulario FANTASMA para detección en build (clave del arreglo) -->
+  <form name="contacto" netlify netlify-honeypot="company" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
 </section>
 
 <script is:inline>
-  // Envío AJAX a Netlify (sin redirección)
+  // Envío AJAX a Netlify (sin redirección) con blur + overlay de gracias
   const form     = document.getElementById('contactForm');
   const btn      = document.getElementById('sendBtn');
   const err      = document.getElementById('contactError');
-  const thanks   = document.getElementById('contactThanks');
+  const overlay  = document.getElementById('contactOverlay');
   const resetBtn = document.getElementById('contactReset');
 
-  function encode(data) { return new URLSearchParams(data).toString(); }
+  const encode = (data) => new URLSearchParams(data).toString();
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -171,18 +176,17 @@
     data.append('form-name', form.getAttribute('name') || 'contacto');
 
     try {
-      const res = await fetch('/', {
+      const res = await fetch(form.getAttribute('action') || '/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode(Object.fromEntries(data)),
       });
 
       if (res.ok) {
-        form.classList.add('hidden');
-        thanks?.classList.remove('hidden');
-        err?.classList.add('hidden');
+        form.classList.add('blur-md','opacity-60','pointer-events-none');
+        overlay?.classList.remove('hidden');
       } else {
-        throw new Error('Netlify error');
+        throw new Error('Netlify 404/500');
       }
     } catch {
       err?.classList.remove('hidden');
@@ -194,7 +198,7 @@
   });
 
   resetBtn?.addEventListener('click', () => {
-    thanks?.classList.add('hidden');
-    form?.classList.remove('hidden');
+    overlay?.classList.add('hidden');
+    form?.classList.remove('blur-md','opacity-60','pointer-events-none');
   });
 </script>
