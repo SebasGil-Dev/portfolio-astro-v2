@@ -65,7 +65,12 @@
 
     "contact_thanks_title": "¡Gracias por tu mensaje!",
     "contact_thanks_body": "Te responderé lo antes posible. Si necesitas algo urgente, también puedes escribirme por correo.",
-    "contact_thanks_again": "Enviar otro mensaje"
+    "contact_thanks_again": "Enviar otro mensaje",
+
+    "certs_title": "Certificados",
+    "certs_subtitle": "Visualización de certificados obtenidos.",
+    "footer_text": "© 2025 Juan Sebastián Gil • Casi todos los derechos reservados."
+ 
   },
 
   "en": {
@@ -134,6 +139,10 @@
 
     "contact_thanks_title": "Thanks for your message!",
     "contact_thanks_body": "I’ll get back to you as soon as possible. If it’s urgent, you can also email me directly.",
-    "contact_thanks_again": "Send another message"
+    "contact_thanks_again": "Send another message",
+
+    "certs_title": "Certificates",
+    "certs_subtitle": "Viewing earned certificates.",
+    "footer_text": "© 2025 Juan Sebastián Gil • Almost all rights reserved."
   }
 }

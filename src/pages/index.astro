@@ -3,13 +3,31 @@ import Layout from "../layouts/Layout.astro";
 import About from "../components/about.astro";
 import Skills from "../components/Skills.astro";
 import Projects from "../components/projects.astro";
-import Contact from "../components/Contact.astro";
+import Certif from "../components/certif.astro";
 ---
 
 <Layout title="Portafolio">
   <About />
   <Skills />
+  <Certif />
   <Projects />
-  <Contact />
 </Layout>
-@copy
+
+<!-- Footer -->
+<footer
+  class="mt-20 py-6 text-center text-sm font-medium
+         text-neutral-600 dark:text-neutral-300
+         bg-white/50 dark:bg-neutral-900/50
+         backdrop-blur-sm border-t border-black/10 dark:border-white/10
+         shadow-[0_-1px_10px_rgba(0,0,0,0.05)] dark:shadow-[0_-1px_10px_rgba(255,255,255,0.05)]
+         transition-colors duration-500"
+>
+  <p
+    class="px-6"
+    data-i18n="footer_text"
+  >
+    © 2025 <span class="font-semibold text-lime-600 dark:text-lime-400">Juan Sebastián Gil</span> • Casi todos los derechos reservados.
+  </p>
+</footer>
+
+

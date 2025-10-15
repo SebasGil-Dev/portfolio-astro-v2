@@ -1,6 +1,6 @@
 ---
 import esFlag from "../assets/es.svg";
-import enFlag from "../assets/en.svg"; // lo dejamos importado por si luego reactivas la lógica
+import enFlag from "../assets/en.svg"; 
 ---
 
 <header
@@ -51,10 +51,10 @@ import enFlag from "../assets/en.svg"; // lo dejamos importado por si luego reac
 <!-- Centro -->
 <ul
   class="flex-1 min-w-0 flex items-center justify-center
-         overflow-x-auto whitespace-nowrap
-         gap-3 sm:gap-6 text-[13px] sm:text-sm font-medium
-         [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-         max-[480px]:gap-2"
+        overflow-x-auto whitespace-nowrap
+        gap-3 sm:gap-6 text-[13px] sm:text-sm font-medium
+        [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+        max-[480px]:gap-2"
 >
   <!-- Sobre mí -->
   <li class="group shrink-0">
@@ -91,6 +91,33 @@ import enFlag from "../assets/en.svg"; // lo dejamos importado por si luego reac
       <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
     </a>
   </li>
+
+    <!-- Certificados -->
+  <li class="group shrink-0">
+    <a href="#certificados"
+       class="relative inline-flex items-center px-1 py-0.5
+              text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white
+              transition-[transform,color] duration-300 ease-out
+              group-hover:scale-110 group-focus-visible:scale-110
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 rounded-md
+              max-[480px]:px-0.5">
+
+      <!-- Icono: visible < 480px -->
+      <svg class="hidden max-[480px]:inline-block h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <!-- certificado (medalla) -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 15.5a6 6 0 1 1 0-12 6 6 0 0 1 0 12z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M9.5 14.5L8 21l4-2 4 2-1.5-6.5" />
+      </svg>
+
+      <!-- Texto: oculto < 480px -->
+      <span data-i18n="certificates" class="max-[480px]:hidden">Certificados</span>
+
+      <span class="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-0 bg-current opacity-40 transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full"></span>
+    </a>
+  </li>
+
 
   <!-- Proyectos -->
   <li class="group shrink-0">
