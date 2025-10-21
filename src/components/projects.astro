@@ -17,7 +17,7 @@ import pythonIcon from "../assets/skills/python.svg";
 const techIcons: Record<string, any> = {
   HTML: htmlIcon,
   CSS: cssIcon,
-  "CSS / Tailwind": cssIcon, // cámbialo si tienes tailwind.svg
+  "CSS / Tailwind": cssIcon,
   Tailwind: cssIcon,
   JavaScript: jsIcon,
   TypeScript: tsIcon,
@@ -59,21 +59,27 @@ const projects = [
   },
 ];
 ---
-<section id="proyectos" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
- 
-<h2
 
-  class="text-4xl sm:text-5xl font-extrabold tracking-tight
-         leading-[1.15] pb-2 text-center
-         bg-gradient-to-r from-lime-600 via-lime-500 to-amber-500
-         bg-clip-text text-transparent"
-  data-i18n="projects_title"
->
-  Proyectos
-</h2>
+<section id="proyectos" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+  <div class="text-center mb-16">
+    <h2
+      class="text-4xl sm:text-5xl font-extrabold tracking-tight
+            text-black dark:text-white mb-3"
+      data-i18n="projects_title"
+    >
+      Proyectos
+    </h2>
+
+    <p
+      class="mt-3 text-neutral-600 dark:text-neutral-300 text-base sm:text-lg max-w-2xl mx-auto"
+      data-i18n="projects_subtitle"
+    >
+      Proyectos en los que he participado.
+    </p>
+  </div>
 
   <!-- Wrapper para posicionar flechas -->
-  <div class="relative max-w-7xl mx-auto">
+  <div class="relative max-w-7xl mx-auto mt-10">
     <!-- Flechas (solo icono) -->
     <button
       type="button" aria-label="Anterior" data-prev
@@ -118,14 +124,12 @@ const projects = [
                  data-[active=true]:scale-100
                  data-[active=true]:blur-0"
         >
-          <!-- Card -->
           <div
             class="relative flex flex-col lg:flex-row items-stretch
                    rounded-3xl border border-black/10 dark:border-white/10
                    bg-white/70 dark:bg-neutral-900/60 backdrop-blur
                    shadow-lg ring-1 ring-black/5 dark:ring-white/5 overflow-hidden"
           >
-            <!-- IMG (60%) -->
             <div class="lg:basis-3/5">
               <img
                 src={p.img}
@@ -136,7 +140,6 @@ const projects = [
               />
             </div>
 
-            <!-- INFO (40%) -->
             <div class="lg:basis-2/5 p-6 sm:p-8 flex flex-col gap-4">
               <h3 class="text-2xl font-semibold text-neutral-900 dark:text-white" data-i18n={p.titleKey}>
                 {p.title}
@@ -146,7 +149,6 @@ const projects = [
                 {p.desc}
               </p>
 
-              <!-- Tecnologías con iconos -->
               <div>
                 <p class="text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2" data-i18n="projects_tech_label">
                   Tecnologías
@@ -171,7 +173,6 @@ const projects = [
                 </ul>
               </div>
 
-              <!-- CTA GitHub -->
               <div class="mt-2">
                 <a
                   href={p.github} target="_blank" rel="noopener noreferrer"
@@ -198,15 +199,13 @@ const projects = [
 </section>
 
 <script is:inline>
-  // --- Carousel circular con “peeking” y card activa ---
+  // --- Carousel circular con “peeking” y card activa (sin scrollIntoView de página) ---
 
   const track = document.getElementById('projects-track');
   if (!track) { console.warn('Carousel: track no encontrado'); }
   else {
-    // Tarjetas reales (sin clones)
     let realCards = Array.from(track.querySelectorAll('article[data-index]'));
     if (realCards.length < 2) {
-      // Con 1 sola card no tiene sentido el loop
       realCards.forEach(el => el.dataset.active = 'true');
     } else {
       const firstReal = realCards[0];
@@ -221,23 +220,26 @@ const projects = [
       cloneLast.dataset.clone = 'true';
       cloneLast.dataset.cloneType = 'last';
 
-      // Insertamos clones
       track.insertBefore(cloneLast, firstReal);
       track.appendChild(cloneFirst);
 
       // Todas las cards (reales + clones)
       const allCards = Array.from(track.querySelectorAll('article[data-index]'));
 
-      const scrollToCard = (el, smooth = false) => {
-        el.scrollIntoView({ behavior: smooth ? 'smooth' : 'instant', inline: 'center', block: 'nearest' });
+      // Centrar una card calculando el desplazamiento horizontal del track
+      const centerOn = (el, smooth = false) => {
+        const targetLeft = el.offsetLeft - (track.clientWidth - el.clientWidth) / 2;
+        track.scrollTo({ left: targetLeft, behavior: smooth ? 'smooth' : 'instant' });
       };
 
-      // Posicionamos al inicio real (hay clon antes)
-      scrollToCard(firstReal, false);
+      // Posicionamos al inicio real (hay clon antes) sin hacer scroll vertical de la página
+      centerOn(firstReal, false);
 
-      // Marcar activa la card más centrada
+      // Marcar activa la card más centrada en viewport
       function setActiveByCenter() {
-        const viewportCenter = window.innerWidth / 2;
+        const trackRect = track.getBoundingClientRect();
+        const viewportCenter = trackRect.left + trackRect.width / 2;
+
         let best = { el: null, dist: Infinity };
         allCards.forEach(el => {
           const rect = el.getBoundingClientRect();
@@ -248,12 +250,12 @@ const projects = [
 
         allCards.forEach(el => el.dataset.active = (el === best.el) ? 'true' : 'false');
 
-        // Si caímos en un clon, saltamos inmediatamente a su real correspondiente
+        // Si caímos en un clon, saltamos al real correspondiente sin afectar el scroll vertical
         if (best.el?.dataset.clone === 'true') {
           const type = best.el.dataset.cloneType;
           requestAnimationFrame(() => {
-            if (type === 'last') scrollToCard(lastReal, false);
-            if (type === 'first') scrollToCard(firstReal, false);
+            if (type === 'last') centerOn(lastReal, false);
+            if (type === 'first') centerOn(firstReal, false);
           });
         }
       }
@@ -280,7 +282,7 @@ const projects = [
       prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
       next?.addEventListener('click', () => track.scrollBy({ left:  step(), behavior: 'smooth' }));
 
-      // Accesibilidad: teclado
+      // Accesibilidad: teclado (solo mueve el track)
       track.setAttribute('tabindex', '0');
       track.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft')  prev?.click();

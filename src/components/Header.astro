@@ -172,7 +172,7 @@ import enFlag from "../assets/en.svg";
         <!-- Idioma -->
         <button
           type="button"
-          data-lang-toggle               
+          data-lang-toggle
           aria-label="Cambiar idioma"
           class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white/70 ring-1 ring-black/5 backdrop-blur-sm
                 hover:bg-white/80 active:scale-95
@@ -182,19 +182,22 @@ import enFlag from "../assets/en.svg";
           title="Idioma"
         >
           <img
-            data-lang-flag               
-            src={esFlag.src}
+            data-lang-flag
+            data-src-es={esFlag.src}
+            data-src-en={enFlag.src}
+            src={esFlag.src}           
             alt="Idioma actual"
             class="h-5 w-5 object-cover rounded-full"
           />
         </button>
+
 
       </div>
     </nav>
   </div>
 </header>
 
-<!-- Mantengo solo lo necesario: tema + borde al hacer scroll -->
+<!-- Mantengo solo lo necesario: tema + borde al hacer scroll + cambio de bandera -->
 <script is:inline type="module">
   // --- Tema ---
   const THEME_KEY = 'theme';
@@ -223,9 +226,60 @@ import enFlag from "../assets/en.svg";
     window.addEventListener('resize', raf(apply), { passive: true });
   };
 
-  document.addEventListener('DOMContentLoaded', () => {
-    applyTheme(getTheme());
-    document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', toggleTheme));
-    setupScroll(); // <- mantiene el efecto del borde/sombra al hacer scroll
+  // --- Cambio de bandera (idioma visual) ---
+// --- Cambio de bandera (idioma visual) con persistencia ---
+const setupFlagToggle = () => {
+  const btns = document.querySelectorAll('[data-lang-toggle]');
+  const flag = document.querySelector('[data-lang-flag]');
+  if (!flag) return;
+
+  const FLAG_KEY = 'ui_flag'; // 'es' | 'en'
+
+  // Leer del almacenamiento o por defecto 'es'
+  const getStored = () => {
+    try {
+      const v = localStorage.getItem(FLAG_KEY);
+      return v === 'en' || v === 'es' ? v : 'es';
+    } catch {
+      return 'es';
+    }
+  };
+
+  const setStored = (v) => {
+    try { localStorage.setItem(FLAG_KEY, v); } catch {}
+  };
+
+  // Aplicar bandera visual
+  const applyFlag = (lang) => {
+    const img = /** @type {HTMLImageElement} */ (flag);
+    const srcEs = img.dataset.srcEs || img.getAttribute('data-src-es');
+    const srcEn = img.dataset.srcEn || img.getAttribute('data-src-en');
+    img.src = lang === 'es' ? srcEs : srcEn;
+    img.alt = lang === 'es' ? 'Español' : 'English';
+    current = lang;
+    setStored(lang);
+  };
+
+  // Estado inicial: si no hay nada, forzar español
+  let current = getStored();
+  if (!current) current = 'es';
+  applyFlag(current);
+
+  // Toggle en clic
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const next = current === 'es' ? 'en' : 'es';
+      applyFlag(next);
+    });
   });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyTheme(getTheme());
+  document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', toggleTheme));
+  setupScroll();      // mantiene el efecto del borde/sombra al hacer scroll
+  setupFlagToggle();  // activa el cambio de bandera + guarda preferencia
+});
+
 </script>
+
