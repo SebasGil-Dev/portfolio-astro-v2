@@ -40,14 +40,15 @@
     "projects_tech_label": "Tecnologías utilizadas",
     "projects_github_label": "Ver en GitHub",
 
-    "project_astro_title": "Astro",
-    "project_astro_desc": "Sitio web construido con Astro y diseño responsivo.",
-    "project_sql_title": "SQL",
-    "project_sql_desc": "Simulador de base de datos con consultas interactivas.",
-    "project_java_title": "Java",
-    "project_java_desc": "Juego de pétalos animados con acceso por código.",
-    
+    "project_astro_title": "Portafolio",
+    "project_astro_desc": "Portafolio construido con Astro, combinando rapidez, estilo minimalista y una arquitectura clara para presentar proyectos.",
+    "project_astro_notes": "Sitio optimizado para velocidad y SEO. Construido completamente con Astro.",
+    "project_todo_title": "TO-DO Listo",
+    "project_todo_desc": "Aplicación full-stack para gestión de tareas, con autenticación, filtros avanzados y CRUD completo. Incluye API propia y un sistema de verificación por correo.",
+    "project_todo_notes": "Para usar la app debes crear una cuenta, verificar tu correo y esperar unos segundos si el servidor de la API está despertando por inactividad.",
+
     "projects_subtitle": "Proyectos en los que he participado.",
+    "projects_live_label": "Visitar página",
 
     "certs_title": "Certificados",
     "certs_subtitle": "Visualización de certificados obtenidos.",
@@ -60,7 +61,7 @@
     "contact_github": "GitHub",
     "contact_whatsapp": "WhatsApp",
     "contact_copied": "Copiado ✔️"
- 
+
   },
 
   "en": {
@@ -104,13 +105,15 @@
     "projects_tech_label": "Technologies used",
     "projects_github_label": "View on GitHub",
 
-    "project_astro_title": "Astro",
-    "project_astro_desc": "Responsive website built with Astro.",
-    "project_sql_title": "SQL",
-    "project_sql_desc": "Database simulator with interactive queries.",
-    "project_java_title": "Java",
-    "project_java_desc": "Animated petal game with code-based access.",
+    "project_astro_title": "Portfolio",
+    "project_astro_desc": "Portfolio built with Astro, blending speed, minimalist style, and a clear structure to showcase projects.",
+    "project_astro_notes": "Site optimized for speed and SEO. Fully built with Astro.",
+    "project_todo_title": "TO-DO Listo",
+    "project_todo_desc": "Full-stack task manager with authentication, advanced filters and complete CRUD. Includes a custom API and email verification system.",
+    "project_todo_notes": "To use the app you must create an account, verify your email, and allow a few seconds if the API server is waking up from inactivity.",
+
     "projects_subtitle": "Projects I have participated in.",  
+    "projects_live_label": "Visit site",
 
     "certs_title": "Certificates",
     "certs_subtitle": "Viewing earned certificates.",

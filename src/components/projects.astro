@@ -32,35 +32,38 @@ const techIcons: Record<string, any> = {
 const projects = [
   {
     titleKey: "project_astro_title",
-    title: "Astro",
+    title: "Astro Portfolio",
     descKey: "project_astro_desc",
-    desc: "Sitio web construido con Astro y diseño responsivo.",
-    img: "/projects/astro.webp",
-    github: "https://github.com/usuario/proyecto-astro",
+    desc:
+      "Portafolio personal desarrollado con Astro, enfocado en rendimiento, diseño minimalista y una arquitectura clara para presentar proyectos de forma eficiente.",
+    img: "/projects/portafolio.png",
+    github: "https://github.com/SebasGil-Dev/portfolio-astro-v2",
+    live: "https://sebasdv.netlify.app/",
+    notesKey: "project_astro_notes",
+    notes: "Sitio optimizado para velocidad y SEO. Construido completamente con Astro.",
     tech: ["Astro", "Tailwind", "TypeScript"],
   },
   {
-    titleKey: "project_sql_title",
-    title: "SQL",
-    descKey: "project_sql_desc",
-    desc: "Simulador de base de datos con consultas interactivas.",
-    img: "/projects/sql.jpeg",
-    github: "https://github.com/usuario/proyecto-sql",
-    tech: ["SQL", "Node.js", "JavaScript"],
-  },
-  {
-    titleKey: "project_java_title",
-    title: "Java",
-    descKey: "project_java_desc",
-    desc: "Juego de pétalos animados con acceso por código.",
-    img: "/projects/java.webp",
-    github: "https://github.com/usuario/proyecto-java",
-    tech: ["Java"],
+    titleKey: "project_todo_title",
+    title: "To-Do Listo",
+    descKey: "project_todo_desc",
+    desc:
+      "Aplicación full-stack para gestión de tareas, con autenticación, filtros avanzados y CRUD completo. Incluye API propia y un sistema de verificación por correo.",
+    img: "/projects/todo.png",
+    github: "https://github.com/SebasGil-Dev/To-Do-List",
+    live: "https://to-dolisto.netlify.app/",
+    notesKey: "project_todo_notes",
+    notes:
+      "Para usar la app debes crear una cuenta, verificar tu correo y esperar unos segundos si el servidor de la API está despertando por inactividad.",
+    tech: ["SQL", "Node.js", "JavaScript", "Tailwind", "CSS"],
   },
 ];
 ---
 
-<section id="proyectos" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+<section
+  id="proyectos"
+  class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24"
+>
   <div class="text-center mb-16">
     <h2
       class="text-4xl sm:text-5xl font-extrabold tracking-tight
@@ -82,24 +85,40 @@ const projects = [
   <div class="relative max-w-7xl mx-auto mt-10">
     <!-- Flechas (solo icono) -->
     <button
-      type="button" aria-label="Anterior" data-prev
+      type="button"
+      aria-label="Anterior"
+      data-prev
       class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-30
              text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300
              transition-colors"
     >
-      <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      <svg
+        viewBox="0 0 24 24"
+        class="h-8 w-8"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
 
     <button
-      type="button" aria-label="Siguiente" data-next
+      type="button"
+      aria-label="Siguiente"
+      data-next
       class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-30
              text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300
              transition-colors"
     >
-      <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      <svg
+        viewBox="0 0 24 24"
+        class="h-8 w-8"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
       </svg>
     </button>
 
@@ -134,23 +153,41 @@ const projects = [
               <img
                 src={p.img}
                 alt={p.title}
-                class="h-full w-full object-cover lg:aspect-[16/9] aspect-[16/9]"
+                class="object-contain w-full h-full lg:aspect-[16/9] aspect-[16/9]"
                 loading="lazy"
                 decoding="async"
               />
             </div>
 
             <div class="lg:basis-2/5 p-6 sm:p-8 flex flex-col gap-4">
-              <h3 class="text-2xl font-semibold text-neutral-900 dark:text-white" data-i18n={p.titleKey}>
+              <h3
+                class="text-2xl font-semibold text-neutral-900 dark:text-white"
+                data-i18n={p.titleKey}
+              >
                 {p.title}
               </h3>
 
-              <p class="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base" data-i18n={p.descKey}>
+              <p
+                class="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base whitespace-pre-line"
+                data-i18n={p.descKey}
+              >
                 {p.desc}
               </p>
 
+              {p.notes && (
+                <p
+                  class="text-neutral-600 dark:text-neutral-400 text-xs whitespace-pre-line"
+                  data-i18n={p.notesKey}
+                >
+                  {p.notes}
+                </p>
+              )}
+
               <div>
-                <p class="text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2" data-i18n="projects_tech_label">
+                <p
+                  class="text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2"
+                  data-i18n="projects_tech_label"
+                >
                   Tecnologías
                 </p>
                 <ul class="flex flex-wrap gap-2">
@@ -164,7 +201,13 @@ const projects = [
                                text-neutral-800 dark:text-neutral-200"
                       >
                         {icon ? (
-                          <img src={icon.src} alt={t} class="h-4 w-4 object-contain invert dark:invert-0" loading="lazy" decoding="async" />
+                          <img
+                            src={icon.src}
+                            alt={t}
+                            class="h-4 w-4 object-contain invert dark:invert-0"
+                            loading="lazy"
+                            decoding="async"
+                          />
                         ) : null}
                         <span>{t}</span>
                       </li>
@@ -173,22 +216,42 @@ const projects = [
                 </ul>
               </div>
 
-              <div class="mt-2">
+              <div class="mt-2 flex flex-wrap gap-3">
                 <a
-                  href={p.github} target="_blank" rel="noopener noreferrer"
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-300
                          bg-white text-gray-800 font-medium text-sm shadow-sm
                          hover:bg-gray-100 active:scale-[0.98]
                          dark:bg-neutral-900 dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-800
                          transition-all duration-300 group"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                       fill="currentColor"
-                       class="w-5 h-5 text-gray-900 dark:text-white transition-transform group-hover:scale-110">
-                    <path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.38 7.86 10.9.58.11.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.53-1.35-1.29-1.7-1.29-1.7-1.06-.73.08-.72.08-.72 1.18.08 1.8 1.23 1.8 1.23 1.04 1.78 2.73 1.27 3.4.97.11-.77.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.68 0-1.25.45-2.27 1.2-3.07-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.17.93-.26 1.93-.39 2.93-.39s2 .13 2.93.39c2.22-1.48 3.2-1.17 3.2-1.17.63 1.59.23 2.77.11 3.06.75.8 1.2 1.82 1.2 3.07 0 4.42-2.71 5.38-5.29 5.66.42.36.81 1.08.81 2.18v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="w-5 h-5 text-gray-900 dark:text-white transition-transform group-hover:scale-110"
+                  >
+                    <path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.38 7.86 10.9.58.11.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.53-1.35-1.29-1.7-1.29-1.7-1.06-.73.08-.72.08-.72 1.18.08 1.8 1.23 1.8 1.23 1.04 1.78 2.73 1.27 3.4.97.11-.77.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.68 0-1.25.45-2.27 1.2-3.07-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.17.93-.26 1.93-.39 2.93-.39s2 .13 2.93.39c2.22-1.48 3.2-1.17 3.2-1.17.63 1.59.23 2.77.11 3.06.75.8 1.2 1.82 1.2 3.07 0 4.42-2.71 5.38-5.29 5.66.42.36.81 1.08.81 2.18v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" />
                   </svg>
                   <span data-i18n="projects_github_label">Ver en GitHub</span>
                 </a>
+
+                {p.live && (
+                  <a
+                    href={p.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-blue-300
+                    bg-blue-500 text-white font-medium text-sm shadow-sm
+                    hover:bg-blue-600 active:scale-[0.98]
+                    transition-all duration-300
+"
+                  >
+                    <span data-i18n="projects_live_label">Visitar página</span>
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -197,6 +260,7 @@ const projects = [
     </div>
   </div>
 </section>
+
 
 <script is:inline>
   // --- Carousel circular con “peeking” y card activa (sin scrollIntoView de página) ---
