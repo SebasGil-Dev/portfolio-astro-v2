@@ -1,13 +1,13 @@
----
-/* Rutas de tus CV — ponlos en /public/cv/ */
-const CV_ES = "/cv/cv-es.pdf";
-const CV_EN = "/cv/cv-en.pdf";
+﻿---
+/* Rutas de tus CV â€” ponlos en /public/cv/ */
+const CV_ES = "/cv/cv-es OFI.pdf";
+const CV_EN = "/cv/cv-en OFI.pdf";
 ---
 
 <section
   id="sobre-mi"
   class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-16"
-  aria-label="Presentación"
+  aria-label="PresentaciÃ³n"
 >
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
@@ -21,14 +21,14 @@ const CV_EN = "/cv/cv-en.pdf";
 
       <img
         src="/profile.png"
-        alt="Sebastián Gil"
+        alt="SebastiÃ¡n Gil"
         class="relative z-10 h-[80%] w-[80%] object-cover rounded-full ring-4 ring-white/30 dark:ring-neutral-800/60
                shadow-2xl transition-transform duration-500 ease-out hover:scale-103"
         loading="eager"
         decoding="async"
       />
 
-      <!-- Botón: Disponible para trabajar -->
+      <!-- BotÃ³n: Disponible para trabajar -->
       <a
         href="#contacto"
         aria-label="Ir a contacto"
@@ -57,7 +57,7 @@ const CV_EN = "/cv/cv-en.pdf";
 
     <!-- Columna derecha -->
     <div class="text-center lg:text-left">
-      <!-- Título -->
+      <!-- TÃ­tulo -->
       <h1
         class="flex flex-col justify-center lg:justify-start items-center lg:items-start
                text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight
@@ -73,7 +73,7 @@ const CV_EN = "/cv/cv-en.pdf";
             aria-live="polite"
           ></span>
           <span id="typer-src" class="sr-only" aria-hidden="true">
-            <span data-i18n="about_rot1">Sebastián Gil</span>
+            <span data-i18n="about_rot1">SebastiÃ¡n Gil</span>
             <span data-i18n="about_rot2">Ingeniero de Sistemas</span>
             <span data-i18n="about_rot3">Programador</span>
           </span>
@@ -141,7 +141,7 @@ const CV_EN = "/cv/cv-en.pdf";
         document.addEventListener('i18n:changed', start);
       </script>
 
-      <!-- Descripción -->
+      <!-- DescripciÃ³n -->
       <p
         class="mt-5 text-base sm:text-[14px] leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-2xl mx-auto lg:mx-0"
         data-i18n="about_description"
@@ -149,7 +149,7 @@ const CV_EN = "/cv/cv-en.pdf";
 
       <!-- CTAs -->
       <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-6">
-        <!-- Botón con menú de idiomas -->
+        <!-- BotÃ³n con menÃº de idiomas -->
         <details class="relative inline-block" data-cv-menu>
           <summary
             class="list-none inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-300
@@ -170,7 +170,7 @@ const CV_EN = "/cv/cv-en.pdf";
                       bg-white/90 dark:bg-neutral-900/90 backdrop-blur shadow-xl p-2 z-30">
             <a href={CV_ES} download class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition">
               <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">ES</span>
-              <span class="flex-1 text-sm">Descargar en español</span>
+              <span class="flex-1 text-sm">Descargar en espaÃ±ol</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path d="M12 5v10M7 10l5 5 5-5"/><path d="M19 19H5"/></svg>
             </a>
 
@@ -183,7 +183,7 @@ const CV_EN = "/cv/cv-en.pdf";
         </details>
 
         <!-- Correo -->
-<!-- Botón Correo (copia al portapapeles con icono) -->
+<!-- BotÃ³n Correo (copia al portapapeles con icono) -->
 <button
   type="button"
   id="copy-email"
@@ -215,7 +215,7 @@ const CV_EN = "/cv/cv-en.pdf";
     class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs font-medium rounded-md
            bg-black/80 text-white opacity-0 pointer-events-none transition-opacity duration-300"
   >
-    Copiado ✔️
+    Copiado âœ”ï¸
   </span>
 </button>
 
@@ -245,7 +245,7 @@ const CV_EN = "/cv/cv-en.pdf";
 <!-- Redes sociales -->
 <div class="mt-8 flex flex-wrap items-center gap-3 justify-center lg:justify-start">
 
-  <!-- Botón LinkedIn -->
+  <!-- BotÃ³n LinkedIn -->
   <a
     href="https://www.linkedin.com/in/juan-sebastian-gil-coy-4b6ba7372/"
     target="_blank"
@@ -268,7 +268,7 @@ const CV_EN = "/cv/cv-en.pdf";
     <span>LinkedIn</span>
   </a>
 
-  <!-- Botón GitHub -->
+  <!-- BotÃ³n GitHub -->
   <a
     href="https://github.com/SebasGil-Dev"
     target="_blank"
@@ -303,7 +303,7 @@ const CV_EN = "/cv/cv-en.pdf";
 </style>
 
 <script is:inline>
-  // Cierra el menú si haces clic fuera o presionas ESC
+  // Cierra el menÃº si haces clic fuera o presionas ESC
   document.addEventListener('click', (e) => {
     const open = document.querySelector('details[data-cv-menu][open]');
     if (!open) return;
