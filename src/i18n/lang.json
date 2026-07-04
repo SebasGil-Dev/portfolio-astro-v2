@@ -27,6 +27,9 @@
     "skill_numpy": "NumPy",
     "skill_jupyter": "Jupyter",
     "skill_excel": "Excel",
+    "skill_html": "HTML",
+    "skill_css": "CSS / Tailwind",
+    "skill_js": "JavaScript",
 
     "soft_teamwork": "Trabajo en equipo",
     "soft_communication": "Comunicación",
@@ -90,6 +93,9 @@
     "skill_numpy": "NumPy",
     "skill_jupyter": "Jupyter",
     "skill_excel": "Excel",
+    "skill_html": "HTML",
+    "skill_css": "CSS / Tailwind",
+    "skill_js": "JavaScript",
 
     "soft_teamwork": "Teamwork",
     "soft_communication": "Communication",
