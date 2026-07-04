@@ -136,39 +136,48 @@ const projects = [
 
     <!-- Track: una card a la vez, con “peek” a los lados -->
     <div
-      id="projects-track"
-      class="relative snap-x snap-mandatory [scroll-snap-stop:always]
+      id=”projects-track”
+      class=”relative snap-x snap-mandatory [scroll-snap-stop:always]
              overflow-x-auto overflow-y-visible scroll-smooth
-             flex gap-10 px-12 sm:px-16 lg:px-24
-             [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+             flex gap-10 py-6 px-[7.5vw]
+             [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden”
     >
       {projects.map((p, idx) => (
         <article
           data-index={idx}
-          data-active={idx === 0 ? "true" : "false"}
-          class="snap-center shrink-0 w-[85vw] max-w-5xl mx-auto transition-all duration-500
+          data-active={idx === 0 ? “true” : “false”}
+          class=”snap-center shrink-0 w-[85vw] mx-auto transition-all duration-500
                  [transform-origin:center]
                  data-[active=false]:opacity-50
                  data-[active=false]:scale-[.94]
                  data-[active=false]:blur-[2px]
                  data-[active=true]:opacity-100
                  data-[active=true]:scale-100
-                 data-[active=true]:blur-0"
+                 data-[active=true]:blur-0”
         >
           <div
-            class="relative flex flex-col lg:flex-row items-stretch
+            class=”relative flex flex-col lg:flex-row items-stretch
                    rounded-3xl border border-black/10 dark:border-white/10
                    bg-white/70 dark:bg-neutral-900/60 backdrop-blur
-                   shadow-lg ring-1 ring-black/5 dark:ring-white/5 overflow-hidden"
+                   shadow-lg ring-1 ring-black/5 dark:ring-white/5 overflow-hidden”
           >
-            <div class="lg:basis-3/5">
+            <!-- Imagen con gradiente de fusión -->
+            <div class=”relative lg:basis-3/5 overflow-hidden”>
               <img
                 src={p.img}
                 alt={p.title}
-                class="object-contain w-full h-full lg:aspect-[16/9] aspect-[16/9]"
-                loading="lazy"
-                decoding="async"
+                class=”object-cover w-full h-full lg:aspect-[16/9] aspect-[16/9]”
+                loading=”lazy”
+                decoding=”async”
               />
+              <!-- Gradiente derecha (desktop) -->
+              <div class=”hidden lg:block absolute inset-y-0 right-0 w-24
+                          bg-gradient-to-r from-transparent
+                          to-white/70 dark:to-neutral-900/60 pointer-events-none”></div>
+              <!-- Gradiente abajo (mobile) -->
+              <div class=”lg:hidden absolute inset-x-0 bottom-0 h-16
+                          bg-gradient-to-b from-transparent
+                          to-white/70 dark:to-neutral-900/60 pointer-events-none”></div>
             </div>
 
             <div class="lg:basis-2/5 p-6 sm:p-8 flex flex-col gap-4">
