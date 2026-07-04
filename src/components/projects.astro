@@ -229,6 +229,7 @@ const projects = [
               </div>
 
               <div class="mt-2 flex flex-wrap gap-3">
+                {p.github && (
                 <a
                   href={p.github}
                   target="_blank"
@@ -249,6 +250,7 @@ const projects = [
                   </svg>
                   <span data-i18n="projects_github_label">Ver en GitHub</span>
                 </a>
+                )}
 
                 {p.live && (
                   <a
