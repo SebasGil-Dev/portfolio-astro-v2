@@ -5,25 +5,11 @@ const JOBS = [
     company: "Banco de Bogotá",
     role_es: "Practicante Empresarial | People Analytics",
     role_en: "Business Intern | People Analytics",
-    type_es: "Contrato de formación",
-    type_en: "Training contract",
-    duration_es: "Ene. 2026 – Jul. 2026 · 7 meses",
-    duration_en: "Jan. 2026 – Jul. 2026 · 7 months",
+    date_es: "Enero 2026 – Julio 2026",
+    date_en: "January 2026 – July 2026",
     logo: "/logos/banco-bogota.png",
-    bullets_es: [
-      "Elaboré presentaciones de procesos de alto impacto para el área de Analítica de Talento.",
-      "Apoyé en el seguimiento y control de procesos del área.",
-      "Apoyé la adaptación de scripts locales en Jupyter para su ejecución en la nube.",
-      "Apoyé en procesos de carga, organización y validación de datos.",
-      "Apoyé la conexión de tableros en Power BI con fuentes de datos alojadas en Google Cloud.",
-    ],
-    bullets_en: [
-      "Prepared high-impact process presentations for the Talent Analytics team.",
-      "Supported process monitoring and control within the area.",
-      "Assisted in adapting local Jupyter scripts for cloud execution.",
-      "Supported data loading, organization, and validation processes.",
-      "Assisted in connecting Power BI dashboards to Google Cloud data sources.",
-    ],
+    desc_es: "Apoyé al área de Analítica de Talento elaborando presentaciones de procesos de alto impacto, adaptando scripts de Jupyter para ejecución en la nube, gestionando carga y validación de datos, y conectando tableros de Power BI con fuentes de datos en Google Cloud Platform.",
+    desc_en: "Supported the Talent Analytics area by creating high-impact process presentations, adapting Jupyter scripts for cloud execution, managing data loading and validation, and connecting Power BI dashboards to Google Cloud Platform data sources.",
   },
 ];
 ---
@@ -33,106 +19,71 @@ const JOBS = [
   class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
   aria-label="Experiencia"
 >
-  <div class="text-center mb-14">
+  <!-- Título -->
+  <div class="flex items-center gap-3 mb-12">
+    <svg class="h-7 w-7 text-neutral-900 dark:text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <rect x="2" y="7" width="20" height="14" rx="2" stroke-width="1.8"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+    </svg>
     <h2
-      class="text-4xl sm:text-5xl font-extrabold tracking-tight text-black dark:text-white mb-3"
+      class="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white"
       data-i18n="exp_title"
     >
-      Experiencia
+      Experiencia laboral
     </h2>
-    <p
-      class="text-neutral-600 dark:text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto"
-      data-i18n="exp_subtitle"
-    >
-      Trayectoria profesional y experiencia laboral.
-    </p>
   </div>
 
-  <div class="flex flex-col gap-4">
-    {JOBS.map((job) => (
-      <article
-        class="group relative overflow-hidden rounded-2xl
-               border border-black/10 dark:border-white/10
-               bg-white/70 dark:bg-neutral-900/50
-               backdrop-blur-xl shadow-sm
-               transition-all duration-500 ease-in-out
-               hover:shadow-lg hover:border-black/20 dark:hover:border-white/20"
-      >
-        <!-- Vista compacta (siempre visible) -->
-        <div class="flex items-center gap-4 px-5 py-4">
-          <!-- Logo -->
-          <div class="shrink-0 h-11 w-11 rounded-xl overflow-hidden
-                      border border-black/10 dark:border-white/10
-                      bg-white flex items-center justify-center shadow-sm">
-            <img
-              src={job.logo}
-              alt={job.company}
-              class="h-full w-full object-contain p-1"
-              loading="lazy"
-              decoding="async"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-            />
-            <span
-              class="hidden h-full w-full items-center justify-center text-sm font-bold text-red-600 select-none"
-              aria-hidden="true"
-            >BB</span>
-          </div>
+  <!-- Timeline -->
+  <div class="relative">
+    <!-- Línea vertical -->
+    <div class="absolute left-0 top-2 bottom-2 w-px bg-neutral-200 dark:bg-neutral-700" aria-hidden="true"></div>
 
-          <!-- Info resumida -->
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-semibold text-neutral-900 dark:text-white truncate">
-              {job.company}
-            </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400 truncate">
-              <span data-i18n="exp_banco_type">{job.type_es}</span>
-              <span aria-hidden="true"> · </span>
-              <span data-i18n="exp_banco_duration">{job.duration_es}</span>
-            </p>
-          </div>
+    <div class="flex flex-col gap-12">
+      {JOBS.map((job) => (
+        <div class="relative pl-8 sm:pl-10">
+          <!-- Punto -->
+          <span
+            class="absolute left-[-5px] top-1.5 h-[11px] w-[11px] rounded-full
+                   bg-lime-500 ring-2 ring-white dark:ring-[#313131]"
+            aria-hidden="true"
+          ></span>
 
-          <!-- Área/Rol (badge) -->
-          <span class="hidden sm:inline-flex shrink-0 items-center rounded-full
-                       border border-black/10 dark:border-white/10
-                       bg-neutral-100 dark:bg-neutral-800
-                       px-3 py-1 text-xs font-medium
-                       text-neutral-700 dark:text-neutral-300
-                       transition-colors duration-300
-                       group-hover:bg-lime-100 group-hover:border-lime-300
-                       dark:group-hover:bg-lime-900/30 dark:group-hover:border-lime-700">
-            People Analytics
-          </span>
+          <div class="grid sm:grid-cols-[200px_1fr] gap-4 sm:gap-10">
+            <!-- Columna izquierda: logo + cargo + empresa + fecha -->
+            <div class="flex flex-col gap-2">
+              <!-- Logo -->
+              <div class="h-10 w-10 rounded-lg overflow-hidden border border-black/10 dark:border-white/10 bg-white flex items-center justify-center shadow-sm">
+                <img
+                  src={job.logo}
+                  alt={job.company}
+                  class="h-full w-full object-contain p-1"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                />
+                <span class="hidden h-full w-full items-center justify-center text-xs font-bold text-red-600 select-none" aria-hidden="true">BB</span>
+              </div>
 
-          <!-- Chevron -->
-          <svg
-            class="shrink-0 h-4 w-4 text-neutral-400 transition-transform duration-500 group-hover:rotate-180"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </div>
-
-        <!-- Detalle expandible en hover -->
-        <div
-          class="grid transition-all duration-500 ease-in-out
-                 grid-rows-[0fr] group-hover:grid-rows-[1fr]"
-        >
-          <div class="overflow-hidden">
-            <div class="border-t border-black/5 dark:border-white/5 px-5 py-4">
-              <p class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-3">
-                <span data-i18n="exp_banco_role">{job.role_es}</span>
-              </p>
-              <ul class="space-y-2">
-                {job.bullets_es.map((b, i) => (
-                  <li class="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lime-500" aria-hidden="true"></span>
-                    <span data-i18n={`exp_banco_b${i + 1}`}>{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <p class="text-base font-bold text-lime-600 dark:text-lime-400 leading-tight" data-i18n="exp_banco_role">
+                  {job.role_es}
+                </p>
+                <p class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mt-0.5">
+                  {job.company}
+                </p>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-0.5" data-i18n="exp_banco_date">
+                  {job.date_es}
+                </p>
+              </div>
             </div>
+
+            <!-- Columna derecha: descripción -->
+            <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed pt-0 sm:pt-1" data-i18n="exp_banco_desc">
+              {job.desc_es}
+            </p>
           </div>
         </div>
-      </article>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
