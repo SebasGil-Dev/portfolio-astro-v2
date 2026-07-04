@@ -170,14 +170,10 @@ const projects = [
                 loading=”lazy”
                 decoding=”async”
               />
-              <!-- Gradiente derecha (desktop) -->
-              <div class=”hidden lg:block absolute inset-y-0 right-0 w-24
-                          bg-gradient-to-r from-transparent
-                          to-white/70 dark:to-neutral-900/60 pointer-events-none”></div>
-              <!-- Gradiente abajo (mobile) -->
-              <div class=”lg:hidden absolute inset-x-0 bottom-0 h-16
-                          bg-gradient-to-b from-transparent
-                          to-white/70 dark:to-neutral-900/60 pointer-events-none”></div>
+              <div style=”position:absolute;top:0;right:0;bottom:0;width:6rem;background:linear-gradient(to right,transparent,rgba(255,255,255,0.75));pointer-events:none” class=”hidden lg:block dark:hidden”></div>
+              <div style=”position:absolute;top:0;right:0;bottom:0;width:6rem;background:linear-gradient(to right,transparent,rgba(23,23,23,0.65));pointer-events:none” class=”hidden dark:lg:block”></div>
+              <div style=”position:absolute;left:0;right:0;bottom:0;height:4rem;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.75));pointer-events:none” class=”lg:hidden dark:hidden”></div>
+              <div style=”position:absolute;left:0;right:0;bottom:0;height:4rem;background:linear-gradient(to bottom,transparent,rgba(23,23,23,0.65));pointer-events:none” class=”hidden dark:block lg:hidden”></div>
             </div>
 
             <div class="lg:basis-2/5 p-6 sm:p-8 flex flex-col gap-4">
