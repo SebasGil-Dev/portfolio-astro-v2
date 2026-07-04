@@ -35,14 +35,13 @@ const JOBS = [
 
   <!-- Timeline -->
   <div class="relative">
-    <!-- Línea vertical -->
-    <div class="absolute left-0 top-2 bottom-2 w-px bg-neutral-200 dark:bg-neutral-700" aria-hidden="true"></div>
-
     <div class="flex flex-col gap-12">
       {JOBS.map((job) => (
-        <div class="relative pl-14 sm:pl-16">
+        <div class="relative pl-20">
+          <!-- Línea vertical desde debajo del logo -->
+          <div class="absolute left-[27px] top-20 bottom-[-3rem] w-px bg-neutral-200 dark:bg-neutral-700" aria-hidden="true"></div>
           <!-- Logo como marcador del timeline -->
-          <div class="absolute left-[-22px] top-0 h-14 w-14 rounded-xl overflow-hidden flex items-center justify-center">
+          <div class="absolute left-0 top-0 h-16 w-16 rounded-xl overflow-hidden flex items-center justify-center">
             <img
               src={job.logo}
               alt={job.company}
