@@ -63,6 +63,9 @@
     "project_opit_title": "OPIT Music",
     "project_opit_desc": "Sitio de presentación bilingüe para una agrupación musical, con secciones de videos, shows, reservas y contacto. Diseño oscuro con paleta negro, dorado y naranja inspirada en el logo del grupo.",
     "project_opit_notes": "Repositorio privado.",
+    "project_docqee_title": "Docqee",
+    "project_docqee_desc": "Plataforma web para vincular estudiantes en prácticas universitarias con empresas e instituciones. Incluye gestión de postulaciones, seguimiento de procesos y panel administrativo.",
+    "project_docqee_notes": "Requiere creación de cuenta para acceder. Las cuentas de estudiantes y administradores están bloqueadas — solo se puede ingresar como usuario regular.",
 
     "projects_subtitle": "Proyectos en los que he participado.",
     "projects_live_label": "Visitar página",
@@ -145,6 +148,9 @@
     "project_opit_title": "OPIT Music",
     "project_opit_desc": "Bilingual presentation site for a music group, with sections for videos, shows, bookings and contact. Dark design with a black, gold and warm orange palette inspired by the group's logo.",
     "project_opit_notes": "Private repository.",
+    "project_docqee_title": "Docqee",
+    "project_docqee_desc": "Web platform to connect university internship students with companies and institutions. Includes application management, process tracking, and an admin panel.",
+    "project_docqee_notes": "Account registration required to access. Student and admin accounts are disabled — only regular user accounts can sign in.",
 
     "projects_subtitle": "Projects I have participated in.",  
     "projects_live_label": "Visit site",
