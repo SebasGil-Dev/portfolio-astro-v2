@@ -7,13 +7,8 @@ const JOBS = [
     role_en: "Business Intern | People Analytics",
     type_es: "Contrato de formación",
     type_en: "Training contract",
-    start_es: "Ene. 2026",
-    end_es: "Jul. 2026",
-    start_en: "Jan. 2026",
-    end_en: "Jul. 2026",
-    duration_es: "7 meses",
-    duration_en: "7 months",
-    location: "Bogotá, Colombia · Híbrido",
+    duration_es: "Ene. 2026 – Jul. 2026 · 7 meses",
+    duration_en: "Jan. 2026 – Jul. 2026 · 7 months",
     logo: "/logos/banco-bogota.png",
     bullets_es: [
       "Elaboré presentaciones de procesos de alto impacto para el área de Analítica de Talento.",
@@ -53,16 +48,22 @@ const JOBS = [
     </p>
   </div>
 
-  <div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-4">
     {JOBS.map((job) => (
       <article
-        class="backdrop-blur-xl bg-white/70 dark:bg-neutral-900/50
-               border border-black/10 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-lg"
+        class="group relative overflow-hidden rounded-2xl
+               border border-black/10 dark:border-white/10
+               bg-white/70 dark:bg-neutral-900/50
+               backdrop-blur-xl shadow-sm
+               transition-all duration-500 ease-in-out
+               hover:shadow-lg hover:border-black/20 dark:hover:border-white/20"
       >
-        <div class="flex items-start gap-4 sm:gap-6">
+        <!-- Vista compacta (siempre visible) -->
+        <div class="flex items-center gap-4 px-5 py-4">
           <!-- Logo -->
-          <div class="shrink-0 h-14 w-14 sm:h-16 sm:w-16 rounded-xl overflow-hidden
-                      border border-black/10 dark:border-white/10 bg-white flex items-center justify-center shadow-sm">
+          <div class="shrink-0 h-11 w-11 rounded-xl overflow-hidden
+                      border border-black/10 dark:border-white/10
+                      bg-white flex items-center justify-center shadow-sm">
             <img
               src={job.logo}
               alt={job.company}
@@ -72,52 +73,65 @@ const JOBS = [
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
             />
             <span
-              class="hidden h-full w-full items-center justify-center text-lg font-bold text-red-600 select-none"
+              class="hidden h-full w-full items-center justify-center text-sm font-bold text-red-600 select-none"
               aria-hidden="true"
-            >
-              BB
-            </span>
+            >BB</span>
           </div>
 
-          <!-- Info principal -->
+          <!-- Info resumida -->
           <div class="flex-1 min-w-0">
-            <h3 class="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white leading-tight">
-              <span data-i18n="exp_banco_role">{job.role_es}</span>
-            </h3>
-            <p class="text-base font-semibold text-neutral-700 dark:text-neutral-300 mt-0.5">
+            <p class="text-sm font-semibold text-neutral-900 dark:text-white truncate">
               {job.company}
             </p>
-            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1.5 text-sm text-neutral-500 dark:text-neutral-400">
+            <p class="text-xs text-neutral-500 dark:text-neutral-400 truncate">
               <span data-i18n="exp_banco_type">{job.type_es}</span>
-              <span aria-hidden="true">·</span>
-              <span>
-                <span data-i18n="exp_banco_start">{job.start_es}</span>
-                {" – "}
-                <span data-i18n="exp_banco_end">{job.end_es}</span>
-                {" · "}
-                <span data-i18n="exp_banco_duration">{job.duration_es}</span>
-              </span>
-            </div>
-            <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-1">
-              <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                <circle cx="12" cy="9" r="2.5" stroke-width="2"/>
-              </svg>
-              {job.location}
+              <span aria-hidden="true"> · </span>
+              <span data-i18n="exp_banco_duration">{job.duration_es}</span>
             </p>
           </div>
+
+          <!-- Área/Rol (badge) -->
+          <span class="hidden sm:inline-flex shrink-0 items-center rounded-full
+                       border border-black/10 dark:border-white/10
+                       bg-neutral-100 dark:bg-neutral-800
+                       px-3 py-1 text-xs font-medium
+                       text-neutral-700 dark:text-neutral-300
+                       transition-colors duration-300
+                       group-hover:bg-lime-100 group-hover:border-lime-300
+                       dark:group-hover:bg-lime-900/30 dark:group-hover:border-lime-700">
+            People Analytics
+          </span>
+
+          <!-- Chevron -->
+          <svg
+            class="shrink-0 h-4 w-4 text-neutral-400 transition-transform duration-500 group-hover:rotate-180"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
         </div>
 
-        <!-- Bullets -->
-        <ul class="mt-5 space-y-2 pl-1">
-          {job.bullets_es.map((b, i) => (
-            <li class="flex items-start gap-2.5 text-sm text-neutral-700 dark:text-neutral-300">
-              <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lime-500" aria-hidden="true"></span>
-              <span data-i18n={`exp_banco_b${i + 1}`}>{b}</span>
-            </li>
-          ))}
-        </ul>
+        <!-- Detalle expandible en hover -->
+        <div
+          class="grid transition-all duration-500 ease-in-out
+                 grid-rows-[0fr] group-hover:grid-rows-[1fr]"
+        >
+          <div class="overflow-hidden">
+            <div class="border-t border-black/5 dark:border-white/5 px-5 py-4">
+              <p class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-3">
+                <span data-i18n="exp_banco_role">{job.role_es}</span>
+              </p>
+              <ul class="space-y-2">
+                {job.bullets_es.map((b, i) => (
+                  <li class="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lime-500" aria-hidden="true"></span>
+                    <span data-i18n={`exp_banco_b${i + 1}`}>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </article>
     ))}
   </div>
